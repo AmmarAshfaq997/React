@@ -1,9 +1,18 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen, act } from "@testing-library/react";
+import mockFetch from "./_test_/functions/mockFetch";
+import App from "./App";
 
-test('renders learn react link', () => {
+// beforeEach(() => {
+//   jest.spyOn(window, "fetch").mockImplementation(mockFetch);
+// });
+
+test("renders learn react link", async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  await screen.findByText(/hello/i);
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
 });

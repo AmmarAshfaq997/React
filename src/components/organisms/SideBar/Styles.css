@@ -1,0 +1,21 @@
+.sideheader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #397bf6;
+  height: 65px;
+  align-items: center;
+  padding: 0 10px 0 10px;
+}
+
+.site-layout-sub-header-background {
+  background: #fff;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.root {
+  height: 100%;
+}

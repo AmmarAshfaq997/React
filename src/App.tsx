@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
+import { ThemeProvider } from "styled-components";
+import "antd/dist/antd.min.css";
+import { BrowserRouter } from "react-router-dom";
+import Main from "./routes/index";
 
+const theme = {
+  colors: {
+    title: "#37383a",
+    subTitle: "#bfbfbf",
+    highlight: "#4780da",
+  },
+  font: {
+    size: {
+      title: "16px",
+      subTitle: "14px",
+    },
+    weight: {
+      title: 600,
+      subTitle: 400,
+    },
+  },
+};
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Main />
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
